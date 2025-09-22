@@ -37,6 +37,17 @@ class DirhamSymbolExample extends StatelessWidget {
   }
 }
 ```
+
+## Parameters
+
+| Type        | Name       | Value                       |  
+|-------------|------------|-----------------------------|
+| double      | amount     | 10.0                        |  
+| double?     | fontSize   | 14.0 (Default)              |  
+| FontWeight? | fontWeight | FontWeight.bold (Default)   |  
+| Color?      | color      | no color (uses theme color) |  
+| TextAlign?  | textAlign  | TextAlign.start (Default)   |
+
 <table>
 <td>
 <img src="https://raw.githubusercontent.com/abqamar/uae_dirham_symbol/refs/heads/main/screenshots/preview.png", alt="", height="800px", width="480px"/>
