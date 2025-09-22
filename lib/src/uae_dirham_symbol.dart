@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' as intl;
+import 'package:uae_dirham_symbol/src/util.dart';
+//import 'package:intl/intl.dart' as intl;
 
 class UaeDirhamSymbolTextView extends StatelessWidget {
 
@@ -19,7 +20,7 @@ class UaeDirhamSymbolTextView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(getFormattedPrice(amount),
+    return Text(Util.formatNumber(amount),
       style: TextStyle(
         fontFamily: 'Dirham',
         fontSize: fontSize ?? 14,
@@ -31,20 +32,5 @@ class UaeDirhamSymbolTextView extends StatelessWidget {
       textDirection: TextDirection.ltr,
       textAlign: textAlign ?? TextAlign.start,
     );
-  }
-
-  String getFormattedPrice(dynamic number){
-
-    if(number is String){
-      throw 'invalid number';
-    }
-
-    final currencyFormatter = intl.NumberFormat.currency(
-      locale: 'en_US',
-      symbol: 'ê ',
-      decimalDigits: 2,
-    );
-    String formattedPrice = currencyFormatter.format(number);
-    return formattedPrice;
   }
 }
