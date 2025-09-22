@@ -39,7 +39,7 @@ class DirhamSymbolExample extends StatelessWidget {
 ```
 <table>
 <td>
-<img src="https://raw.githubusercontent.com/abqamar/uae_dirham_symbol/refs/heads/main/screenshots/preview.png", alt=""/>
+<img src="https://raw.githubusercontent.com/abqamar/uae_dirham_symbol/refs/heads/main/screenshots/preview.png", alt="", height="800px", width="480px"/>
 </td>
 </table>
 
