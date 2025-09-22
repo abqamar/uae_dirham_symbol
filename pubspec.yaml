@@ -11,8 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  #intl: any
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

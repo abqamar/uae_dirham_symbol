@@ -8,7 +8,7 @@ Use UAE Dirham symbol with custom limited styling.
 
 [![pub package](https://pub.dev/static/img/pub-dev-logo-2x.png?hash=umitaheu8hl7gd3mineshk2koqfngugi)](https://pub.dev/packages/uae_dirham_symbol)
 
-Only add [bcrypt](https://pub.dev/packages/uae_dirham_symbol) package to your pubspec.yaml.
+Only add [uae_dirham_symbol](https://pub.dev/packages/uae_dirham_symbol) package to your pubspec.yaml.
 
 ```yaml
 dependencies:
@@ -17,7 +17,7 @@ dependencies:
 
 ## Usage
 
-Use Bcrypt to hash and check password.
+Use UaeDirhamSymbolTextView to display amount/prices with Dirham symbol.
 
 ```dart
 class DirhamSymbolExample extends StatelessWidget {

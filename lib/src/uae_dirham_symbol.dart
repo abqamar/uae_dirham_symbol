@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:uae_dirham_symbol/src/util.dart';
-//import 'package:intl/intl.dart' as intl;
 
 class UaeDirhamSymbolTextView extends StatelessWidget {
 
