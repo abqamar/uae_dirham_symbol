@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.0.2
 
-* First release having UaeDirhamSymbolTextView with limited styling.
+* Added proper unicode parsing of the symbol.
