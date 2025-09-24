@@ -42,9 +42,9 @@ class DirhamSymbolExample extends StatelessWidget {
 
 | Type        | Name       | Value                       |  
 |-------------|------------|-----------------------------|
-| double      | amount     | 10.0                        |  
+| double      | amount     | any number (Ex: 10.0)       |  
 | double?     | fontSize   | 14.0 (Default)              |  
-| FontWeight? | fontWeight | FontWeight.bold (Default)   |  
+| FontWeight? | fontWeight | FontWeight.normal (Default) |  
 | Color?      | color      | no color (uses theme color) |  
 | TextAlign?  | textAlign  | TextAlign.start (Default)   |
 
