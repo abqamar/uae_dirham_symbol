@@ -1,4 +1,4 @@
-class Util{
+class Util {
   static String formatNumber(double number, {bool includeDecimals = true}) {
     // Handle negative numbers
     bool isNegative = number < 0;
@@ -33,6 +33,22 @@ class Util{
       result += '.$limitedDecimals';
     }
 
-    return "ê $result";
+    return '${parseHtmlEntity("&#xea;")} $result';
+  }
+
+  static String parseHtmlEntity(String entity) {
+    if (entity.startsWith('&#') && entity.endsWith(';')) {
+      String code = entity.substring(2, entity.length - 1);
+      if (code.startsWith('x')) {
+        // Hexadecimal &#xE800;
+        int decimalValue = int.parse(code.substring(1), radix: 16);
+        return String.fromCharCode(decimalValue);
+      } else {
+        // Decimal &#59392;
+        int decimalValue = int.parse(code);
+        return String.fromCharCode(decimalValue);
+      }
+    }
+    return entity;
   }
 }

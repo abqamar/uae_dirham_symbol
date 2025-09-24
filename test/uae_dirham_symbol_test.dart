@@ -4,7 +4,7 @@ import 'package:uae_dirham_symbol/src/util.dart';
 
 void main() {
   test('passing amount to dirham widget', () {
-    UaeDirhamSymbolTextView(amount: 1.55);
-    print(Util.formatNumber(-100.66));
+    UaeDirhamSymbolTextView(amount: 100000.55);
+    print(Util.formatNumber(1000000.66));
   });
 }
