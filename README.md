@@ -12,7 +12,7 @@ Only add [uae_dirham_symbol](https://pub.dev/packages/uae_dirham_symbol) package
 
 ```yaml
 dependencies:
-  uae_dirham_symbol: ^0.0.1
+  uae_dirham_symbol: ^0.0.2
 ```
 
 ## Usage
