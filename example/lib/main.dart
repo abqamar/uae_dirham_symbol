@@ -43,10 +43,22 @@ class DirhamSymbolExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("UAE Dirham Symbol TextView"),
+        title: Text("UAE Dirham Symbol Example"),
         centerTitle: true,
       ),
-      body: Center(child: UaeDirhamSymbolTextView(amount: 1.99)),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("UAE Dirham Symbol TextView"),
+            UaeDirhamSymbolTextView(amount: 10000.99, fontSize: 30, fontWeight: FontWeight.w900,),
+            const SizedBox(height: 10,),
+            Text("UAE Dirham Symbol"),
+            UaeDirhamSymbol(fontSize: 30,),//only display Dirham symbol as Text
+          ],
+        ),
+      ),
     );
   }
 }

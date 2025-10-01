@@ -1,3 +1,3 @@
-## 0.0.2
+## 0.0.3
 
-* Added proper unicode parsing of the symbol.
+* Added Dirham symbol text that display only symbol.

@@ -2,7 +2,7 @@ Use UAE Dirham Symbol as Text in your application. Avoid adding dirham font and 
 
 ## Features
 
-Use UAE Dirham symbol with custom limited styling. 
+Use UAE Dirham symbol with custom limited styling.
 
 ## Getting started
 
@@ -12,7 +12,7 @@ Only add [uae_dirham_symbol](https://pub.dev/packages/uae_dirham_symbol) package
 
 ```yaml
 dependencies:
-  uae_dirham_symbol: ^0.0.2
+  uae_dirham_symbol: ^0.0.3
 ```
 
 ## Usage
@@ -27,11 +27,21 @@ class DirhamSymbolExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("UAE Dirham Symbol TextView"),
+        title: Text("UAE Dirham Symbol Example"),
         centerTitle: true,
       ),
       body: Center(
-        child: UaeDirhamSymbolTextView(amount: 1.99),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("UAE Dirham Symbol TextView"),
+            UaeDirhamSymbolTextView(amount: 10000.99),
+            const SizedBox(height: 10,),
+            Text("UAE Dirham Symbol Only"),
+            UaeDirhamSymbol(fontSize: 30,),
+          ],
+        ),
       ),
     );
   }
@@ -43,7 +53,7 @@ class DirhamSymbolExample extends StatelessWidget {
 | Type        | Name       | Value                       |  
 |-------------|------------|-----------------------------|
 | double      | amount     | any number (Ex: 10.0)       |  
-| double?     | fontSize   | 14.0 (Default)              |  
+| double?     | fontSize   | Default                     |  
 | FontWeight? | fontWeight | FontWeight.normal (Default) |  
 | Color?      | color      | no color (uses theme color) |  
 | TextAlign?  | textAlign  | TextAlign.start (Default)   |

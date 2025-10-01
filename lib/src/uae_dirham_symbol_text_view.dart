@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:uae_dirham_symbol/src/util.dart';
 
-class UaeDirhamSymbol extends StatelessWidget {
+class UaeDirhamSymbolTextView extends StatelessWidget {
+  final double amount;
   final double? fontSize;
   final FontWeight? fontWeight;
   final Color? color;
   final TextAlign? textAlign;
 
-  const UaeDirhamSymbol({
+  const UaeDirhamSymbolTextView({
     super.key,
+    required this.amount,
     this.fontSize,
     this.fontWeight,
     this.color,
@@ -18,7 +20,8 @@ class UaeDirhamSymbol extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      Util.parseHtmlEntity("&#xea;"),
+      // Passing double value to function, Ex: 1000.50 that return formatted string with symbol
+      Util.formatNumber(amount),
       style: TextStyle(
         fontFamily: 'Dirham', // Supported font that display dirham font
         package: 'uae_dirham_symbol',
