@@ -7,7 +7,8 @@ class UaeDirhamSymbolTextView extends StatelessWidget {
   final FontWeight? fontWeight;
   final Color? color;
   final TextAlign? textAlign;
-  final bool? includeDecimal;
+  final bool includeDecimal;
+  final bool isFormatted;
   final TextDecoration? decoration;
   final TextDecorationStyle? decorationStyle;
   final int spacing;
@@ -19,7 +20,8 @@ class UaeDirhamSymbolTextView extends StatelessWidget {
       this.fontWeight,
       this.color,
       this.textAlign,
-      this.includeDecimal,
+      this.includeDecimal = true,
+      this.isFormatted = true,
       this.decoration,
       this.decorationStyle,
       this.spacing = 0});
@@ -29,7 +31,7 @@ class UaeDirhamSymbolTextView extends StatelessWidget {
     String spaces = ' ' * spacing;
     return Text(
       // Passing double value to function, Ex: 1000.50 that return formatted string with symbol
-      '${Util.parseHtmlEntity("&#xea;")}$spaces${Util.formatNumber(amount, includeDecimals: includeDecimal ?? true)}',
+      '${Util.parseHtmlEntity("&#xea;")}$spaces${Util.formattedAmount(amount, includeDecimal: includeDecimal, isFormatted: isFormatted)}',
       style: TextStyle(
           fontFamily: 'Dirham',
           package: 'uae_dirham_symbol',

@@ -14,7 +14,7 @@ Only add [uae_dirham_symbol](https://pub.dev/packages/uae_dirham_symbol) package
 
 ```yaml
 dependencies:
-  uae_dirham_symbol: ^0.0.4
+  uae_dirham_symbol: ^0.0.5
 ```
 
 ## Usage
@@ -70,6 +70,8 @@ class DirhamSymbolExample extends StatelessWidget {
                     const UaeDirhamSymbolTextView(
                       amount: 10000.99,
                       fontSize: 30,
+                      isFormatted: true,
+                      includeDecimal: false,
                       fontWeight: FontWeight.bold,
                     ),
                     const UaeDirhamSymbolTextView(
@@ -111,6 +113,8 @@ class DirhamSymbolExample extends StatelessWidget {
                     const CustomDirhamSymbolTextView(
                       amount: 11111.9,
                       symbolFontSize: 30,
+                      includeDecimal: true,
+                      isFormatted: false,
                       amountStyle: TextStyle(
                         fontSize: 20,
                         color: Colors.red,
@@ -121,6 +125,7 @@ class DirhamSymbolExample extends StatelessWidget {
                     const CustomDirhamSymbolTextView(
                       amount: 1111.99,
                       includeDecimal: false,
+                      isFormatted: true,
                       symbolFontSize: 10,
                       symbolFontWeight: FontWeight.bold,
                       amountStyle: TextStyle(
@@ -187,7 +192,9 @@ class DirhamSymbolExample extends StatelessWidget {
 | double               | amount          | any number (Ex: 10.0)                           |  
 | double?              | fontSize        | Default                                         |  
 | FontWeight?          | fontWeight      | FontWeight.normal (Default)                     |  
-| Color?               | color           | no color (uses theme color)                     |  
+| bool?                | includeDecimal  | show decimal value - default true               |
+| bool?                | isFormatted     | amount formatting with comma - default true     |
+| Color?               | color           | no color (uses theme color)                     |
 | TextAlign?           | textAlign       | TextAlign.start (Default)                       |
 | int?                 | spacing         | Default = 0 - Spacing between amount and symbol |
 | TextDecoration?      | decoration      | apply decoration on amount                      |
@@ -205,9 +212,15 @@ class DirhamSymbolExample extends StatelessWidget {
 | int?        | spacing          | Default = 0 - Spacing between amount and symbol |
 | bool?       | includeDecimal   | default = true                                  |
 | TextStyle?  | amountStyle      | Use TextStyle for amount                        |
+| bool?       | includeDecimal   | show decimal value - default true               |
+| bool?       | isFormatted      | amount formatting with comma - default true     |
 
-### Preview
+## Preview
 <img src="https://raw.githubusercontent.com/abqamar/uae_dirham_symbol/refs/heads/main/screenshots/preview.png" alt="Examples" width="400"/>
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
 
 ## Support
 

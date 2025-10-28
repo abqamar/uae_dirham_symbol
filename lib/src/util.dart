@@ -68,6 +68,40 @@ class Util {
     return result;
   }
 
+  static String formattedAmount(
+    double amount, {
+    bool isFormatted = true,
+    bool includeDecimal = true,
+  }) {
+    // Round to 2 decimals but keep control
+    String numberStr = amount.toStringAsFixed(2);
+
+    // Split integer and decimal parts
+    List<String> parts = numberStr.split('.');
+    String integerPart = parts[0];
+    String decimalPart = parts.length > 1 ? parts[1] : '00';
+
+    if (!isFormatted) {
+      // No formatting, just return as plain string
+      return includeDecimal ? '$integerPart.$decimalPart' : integerPart;
+    }
+
+    // Format integer with commas manually
+    final buffer = StringBuffer();
+    int count = 0;
+    for (int i = integerPart.length - 1; i >= 0; i--) {
+      if (count > 0 && count % 3 == 0) buffer.write(',');
+      buffer.write(integerPart[i]);
+      count++;
+    }
+
+    // Reverse back the formatted integer
+    String formattedInteger = buffer.toString().split('').reversed.join('');
+
+    // Return result based on includeDecimal
+    return includeDecimal ? '$formattedInteger.$decimalPart' : formattedInteger;
+  }
+
   static String parseHtmlEntity(String entity) {
     if (entity.startsWith('&#') && entity.endsWith(';')) {
       String code = entity.substring(2, entity.length - 1);

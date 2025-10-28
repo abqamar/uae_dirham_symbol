@@ -74,6 +74,8 @@ class DirhamSymbolExample extends StatelessWidget {
                     const UaeDirhamSymbolTextView(
                       amount: 10000.99,
                       fontSize: 30,
+                      isFormatted: true,
+                      includeDecimal: false,
                       fontWeight: FontWeight.bold,
                     ),
                     const UaeDirhamSymbolTextView(
@@ -115,6 +117,8 @@ class DirhamSymbolExample extends StatelessWidget {
                     const CustomDirhamSymbolTextView(
                       amount: 11111.9,
                       symbolFontSize: 30,
+                      includeDecimal: true,
+                      isFormatted: false,
                       amountStyle: TextStyle(
                         fontSize: 20,
                         color: Colors.red,
@@ -125,6 +129,7 @@ class DirhamSymbolExample extends StatelessWidget {
                     const CustomDirhamSymbolTextView(
                       amount: 1111.99,
                       includeDecimal: false,
+                      isFormatted: true,
                       symbolFontSize: 10,
                       symbolFontWeight: FontWeight.bold,
                       amountStyle: TextStyle(

@@ -7,7 +7,8 @@ class CustomDirhamSymbolTextView extends StatelessWidget {
   final FontWeight? symbolFontWeight;
   final Color? symbolColor;
   final TextAlign? textAlign;
-  final bool? includeDecimal;
+  final bool includeDecimal;
+  final bool isFormatted;
   final TextStyle? amountStyle;
   final int spacing;
 
@@ -18,7 +19,8 @@ class CustomDirhamSymbolTextView extends StatelessWidget {
     this.symbolFontWeight,
     this.symbolColor,
     this.textAlign,
-    this.includeDecimal,
+    this.isFormatted = true,
+    this.includeDecimal = true,
     this.amountStyle,
     this.spacing = 0,
   });
@@ -44,7 +46,8 @@ class CustomDirhamSymbolTextView extends StatelessWidget {
         ),
         Text(spaces),
         Text(
-          Util.formatAmount(amount, includeDecimals: includeDecimal ?? true),
+          Util.formattedAmount(amount,
+              includeDecimal: includeDecimal, isFormatted: isFormatted),
           style: amountStyle,
         ),
       ],
