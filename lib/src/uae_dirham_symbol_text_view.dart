@@ -7,28 +7,37 @@ class UaeDirhamSymbolTextView extends StatelessWidget {
   final FontWeight? fontWeight;
   final Color? color;
   final TextAlign? textAlign;
+  final bool? includeDecimal;
+  final TextDecoration? decoration;
+  final TextDecorationStyle? decorationStyle;
+  final int spacing;
 
-  const UaeDirhamSymbolTextView({
-    super.key,
-    required this.amount,
-    this.fontSize,
-    this.fontWeight,
-    this.color,
-    this.textAlign,
-  });
+  const UaeDirhamSymbolTextView(
+      {super.key,
+      required this.amount,
+      this.fontSize,
+      this.fontWeight,
+      this.color,
+      this.textAlign,
+      this.includeDecimal,
+      this.decoration,
+      this.decorationStyle,
+      this.spacing = 0});
 
   @override
   Widget build(BuildContext context) {
+    String spaces = ' ' * spacing;
     return Text(
       // Passing double value to function, Ex: 1000.50 that return formatted string with symbol
-      Util.formatNumber(amount),
+      '${Util.parseHtmlEntity("&#xea;")}$spaces${Util.formatNumber(amount, includeDecimals: includeDecimal ?? true)}',
       style: TextStyle(
-        fontFamily: 'Dirham', // Supported font that display dirham font
-        package: 'uae_dirham_symbol',
-        fontSize: fontSize,
-        fontWeight: fontWeight ?? FontWeight.normal,
-        color: color,
-      ),
+          fontFamily: 'Dirham',
+          package: 'uae_dirham_symbol',
+          fontSize: fontSize,
+          fontWeight: fontWeight ?? FontWeight.normal,
+          color: color,
+          decoration: decoration,
+          decorationStyle: decorationStyle),
       overflow: TextOverflow.ellipsis,
       maxLines: 1,
       textDirection: TextDirection.ltr,

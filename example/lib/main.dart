@@ -1,3 +1,4 @@
+import 'package:example/product_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:uae_dirham_symbol/uae_dirham_symbol.dart';
 
@@ -5,57 +6,167 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const DirhamSymbolExample(),
+      title: 'E-Commerce Demo',
+      debugShowCheckedModeBanner: false,
+      home: DirhamSymbolExample(),
     );
   }
 }
 
 class DirhamSymbolExample extends StatelessWidget {
-  const DirhamSymbolExample({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
-        title: Text("UAE Dirham Symbol Example"),
+        backgroundColor: Colors.blue,
+        title: Text(
+          "UAE Dirham Symbol Example",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("UAE Dirham Symbol TextView"),
-            UaeDirhamSymbolTextView(amount: 10000.99, fontSize: 30, fontWeight: FontWeight.w900,),
-            const SizedBox(height: 10,),
-            Text("UAE Dirham Symbol"),
-            UaeDirhamSymbol(fontSize: 30,),//only display Dirham symbol as Text
+            Card(
+              elevation: 8,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const Text(
+                      "UAE Dirham Symbol TextView with amount",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Divider(),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      includeDecimal: false,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 20,
+                      color: Colors.red,
+                      spacing: 1,
+                    ),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Card(
+              elevation: 8,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Symbol and amount separate styling",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Divider(),
+                    const CustomDirhamSymbolTextView(
+                      amount: 11111.9,
+                      spacing: 1,
+                    ),
+                    const CustomDirhamSymbolTextView(
+                      amount: 11111.99,
+                      symbolFontSize: 20,
+                      symbolFontWeight: FontWeight.bold,
+                      symbolColor: Colors.green,
+                      amountStyle: TextStyle(fontSize: 20),
+                    ),
+                    const CustomDirhamSymbolTextView(
+                      amount: 11111.9,
+                      symbolFontSize: 20,
+                      amountStyle: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    const CustomDirhamSymbolTextView(
+                      amount: 1111.99,
+                      includeDecimal: false,
+                      symbolFontSize: 20,
+                      symbolFontWeight: FontWeight.bold,
+                      amountStyle: TextStyle(
+                        fontSize: 20,
+                        decoration: TextDecoration.lineThrough,
+                        decorationStyle: TextDecorationStyle.dashed,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Card(
+              elevation: 8,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Symbol with different sizes and color",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 20,
+                      children: [
+                        UaeDirhamSymbol(fontSize: 20, color: Colors.green),
+                        UaeDirhamSymbol(fontSize: 30, color: Colors.red),
+                        UaeDirhamSymbol(fontSize: 40, color: Colors.amber),
+                        UaeDirhamSymbol(fontSize: 50, color: Colors.blue),
+                        UaeDirhamSymbol(fontSize: 60),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

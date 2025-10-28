@@ -1,45 +1,167 @@
 Use UAE Dirham Symbol as Text in your application. Avoid adding dirham font and manage the code. Just Use UaeDirhamSymbolTextView and pass decimal number to the parameter "amount" and you will get the amount formatted with dirham symbol.
 
+[![pub package](https://img.shields.io/pub/v/uae_dirham_symbol.svg)](https://pub.dev/packages/uae_dirham_symbol)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ## Features
 
-Use UAE Dirham symbol with custom limited styling.
+Use UAE Dirham symbol with custom styling.
 
 ## Getting started
-
-[![pub package](https://pub.dev/static/img/pub-dev-logo-2x.png?hash=umitaheu8hl7gd3mineshk2koqfngugi)](https://pub.dev/packages/uae_dirham_symbol)
 
 Only add [uae_dirham_symbol](https://pub.dev/packages/uae_dirham_symbol) package to your pubspec.yaml.
 
 ```yaml
 dependencies:
-  uae_dirham_symbol: ^0.0.3
+  uae_dirham_symbol: ^0.0.4
 ```
 
 ## Usage
 
-Use UaeDirhamSymbolTextView to display amount/prices with Dirham symbol.
-
 ```dart
 class DirhamSymbolExample extends StatelessWidget {
-  const DirhamSymbolExample({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
-        title: Text("UAE Dirham Symbol Example"),
+        backgroundColor: Colors.blue,
+        title: Text(
+          "UAE Dirham Symbol Example",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
       ),
-      body: Center(
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("UAE Dirham Symbol TextView"),
-            UaeDirhamSymbolTextView(amount: 10000.99),
-            const SizedBox(height: 10,),
-            Text("UAE Dirham Symbol Only"),
-            UaeDirhamSymbol(fontSize: 30,),
+            Card(
+              elevation: 8,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const Text(
+                      "UAE Dirham Symbol TextView with amount",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Divider(),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      includeDecimal: false,
+                      decoration: TextDecoration.lineThrough,
+                    ),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 20,
+                      color: Colors.red,
+                      spacing: 1,
+                    ),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    const UaeDirhamSymbolTextView(
+                      amount: 10000.99,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.green,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Card(
+              elevation: 8,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Symbol and amount separate styling",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Divider(),
+                    const CustomDirhamSymbolTextView(
+                      amount: 11111.9,
+                      spacing: 1,
+                    ),
+                    const CustomDirhamSymbolTextView(
+                      amount: 11111.99,
+                      symbolFontSize: 20,
+                      symbolFontWeight: FontWeight.bold,
+                      symbolColor: Colors.green,
+                      amountStyle: TextStyle(fontSize: 20),
+                    ),
+                    const CustomDirhamSymbolTextView(
+                      amount: 11111.9,
+                      symbolFontSize: 20,
+                      amountStyle: TextStyle(
+                        fontSize: 20,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    const CustomDirhamSymbolTextView(
+                      amount: 1111.99,
+                      includeDecimal: false,
+                      symbolFontSize: 20,
+                      symbolFontWeight: FontWeight.bold,
+                      amountStyle: TextStyle(
+                        fontSize: 20,
+                        decoration: TextDecoration.lineThrough,
+                        decorationStyle: TextDecorationStyle.dashed,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            Card(
+              elevation: 8,
+              child: Padding(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Symbol with different sizes and color",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 20,
+                      children: [
+                        UaeDirhamSymbol(fontSize: 20, color: Colors.green),
+                        UaeDirhamSymbol(fontSize: 30, color: Colors.red),
+                        UaeDirhamSymbol(fontSize: 40, color: Colors.amber),
+                        UaeDirhamSymbol(fontSize: 50, color: Colors.blue),
+                        UaeDirhamSymbol(fontSize: 60),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -48,15 +170,40 @@ class DirhamSymbolExample extends StatelessWidget {
 }
 ```
 
-## Parameters
+## Parameters (UaeDirhamSymbol)
 
-| Type        | Name       | Value                       |  
-|-------------|------------|-----------------------------|
-| double      | amount     | any number (Ex: 10.0)       |  
-| double?     | fontSize   | Default                     |  
-| FontWeight? | fontWeight | FontWeight.normal (Default) |  
-| Color?      | color      | no color (uses theme color) |  
-| TextAlign?  | textAlign  | TextAlign.start (Default)   |
+| Type        | Name       | Value                                           |  
+|-------------|------------|-------------------------------------------------| 
+| double?     | fontSize   | Default                                         |  
+| FontWeight? | fontWeight | FontWeight.normal (Default)                     |  
+| Color?      | color      | no color (uses theme color)                     |  
+| TextAlign?  | textAlign  | TextAlign.start (Default)                       |
+
+## Parameters (UaeDirhamSymbolTextView)
+
+| Type                 | Name            | Value                                           |  
+|----------------------|-----------------|-------------------------------------------------|
+| double               | amount          | any number (Ex: 10.0)                           |  
+| double?              | fontSize        | Default                                         |  
+| FontWeight?          | fontWeight      | FontWeight.normal (Default)                     |  
+| Color?               | color           | no color (uses theme color)                     |  
+| TextAlign?           | textAlign       | TextAlign.start (Default)                       |
+| int?                 | spacing         | Default = 0 - Spacing between amount and symbol |
+| TextDecoration?      | decoration      | apply decoration on amount                      |
+| TextDecorationStyle? | decorationStyle | apply decoration style on amount                |
+
+## Parameters (CustomDirhamSymbolTextView)
+
+| Type        | Name             | Value                                           |  
+|-------------|------------------|-------------------------------------------------|
+| double      | amount           | any number (Ex: 10.0)                           |  
+| Color?      | symbolColor      | no color (uses theme color)                     |  
+| double?     | symbolFontSize   | Symbol font size                                |  
+| FontWeight? | symbolFontWeight | FontWeight.normal (Default)                     |
+| TextAlign?  | textAlign        | TextAlign.start (Default)                       |
+| int?        | spacing          | Default = 0 - Spacing between amount and symbol |
+| bool?       | includeDecimal   | default = true                                  |
+| TextStyle?  | amountStyle      | Use TextStyle for amount                        |
 
 <table>
 <td>
