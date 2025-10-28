@@ -1,7 +1,8 @@
 name: uae_dirham_symbol
 description: "Package that can show UAE Dirham symbol with formatted amount in string by applying the amount in double"
-version: 0.0.3
-homepage: https://github.com/abqamar/uae_dirham_symbol
+version: 0.0.4
+homepage: https://github.com/abqamar/uae_dirham_symbol.git
+license: MIT
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
