@@ -172,7 +172,7 @@ class DirhamSymbolExample extends StatelessWidget {
 
 ## Parameters (UaeDirhamSymbol)
 
-| Type        | Name       | Value                                           |  
+| Type        | Name       | Description                                     |  
 |-------------|------------|-------------------------------------------------| 
 | double?     | fontSize   | Default                                         |  
 | FontWeight? | fontWeight | FontWeight.normal (Default)                     |  
@@ -181,7 +181,7 @@ class DirhamSymbolExample extends StatelessWidget {
 
 ## Parameters (UaeDirhamSymbolTextView)
 
-| Type                 | Name            | Value                                           |  
+| Type                 | Name            | Description                                     |  
 |----------------------|-----------------|-------------------------------------------------|
 | double               | amount          | any number (Ex: 10.0)                           |  
 | double?              | fontSize        | Default                                         |  
@@ -194,7 +194,7 @@ class DirhamSymbolExample extends StatelessWidget {
 
 ## Parameters (CustomDirhamSymbolTextView)
 
-| Type        | Name             | Value                                           |  
+| Type        | Name             | Description                                     |  
 |-------------|------------------|-------------------------------------------------|
 | double      | amount           | any number (Ex: 10.0)                           |  
 | Color?      | symbolColor      | no color (uses theme color)                     |  
