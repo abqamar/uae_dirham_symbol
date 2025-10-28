@@ -1,4 +1,5 @@
 Use UAE Dirham Symbol as Text in your application. Avoid adding dirham font and manage the code. Just Use UaeDirhamSymbolTextView and pass decimal number to the parameter "amount" and you will get the amount formatted with dirham symbol.
+No SVG pure Text Widget. Use CustomDirhamSymbolTextView to customize both symbol and amount text separately.
 
 [![pub package](https://img.shields.io/pub/v/uae_dirham_symbol.svg)](https://pub.dev/packages/uae_dirham_symbol)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -102,14 +103,14 @@ class DirhamSymbolExample extends StatelessWidget {
                     ),
                     const CustomDirhamSymbolTextView(
                       amount: 11111.99,
-                      symbolFontSize: 20,
+                      symbolFontSize: 18,
                       symbolFontWeight: FontWeight.bold,
                       symbolColor: Colors.green,
                       amountStyle: TextStyle(fontSize: 20),
                     ),
                     const CustomDirhamSymbolTextView(
                       amount: 11111.9,
-                      symbolFontSize: 20,
+                      symbolFontSize: 30,
                       amountStyle: TextStyle(
                         fontSize: 20,
                         color: Colors.red,
@@ -120,7 +121,7 @@ class DirhamSymbolExample extends StatelessWidget {
                     const CustomDirhamSymbolTextView(
                       amount: 1111.99,
                       includeDecimal: false,
-                      symbolFontSize: 20,
+                      symbolFontSize: 10,
                       symbolFontWeight: FontWeight.bold,
                       amountStyle: TextStyle(
                         fontSize: 20,

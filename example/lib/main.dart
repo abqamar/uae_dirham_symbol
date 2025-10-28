@@ -107,14 +107,14 @@ class DirhamSymbolExample extends StatelessWidget {
                     ),
                     const CustomDirhamSymbolTextView(
                       amount: 11111.99,
-                      symbolFontSize: 20,
+                      symbolFontSize: 18,
                       symbolFontWeight: FontWeight.bold,
                       symbolColor: Colors.green,
                       amountStyle: TextStyle(fontSize: 20),
                     ),
                     const CustomDirhamSymbolTextView(
                       amount: 11111.9,
-                      symbolFontSize: 20,
+                      symbolFontSize: 30,
                       amountStyle: TextStyle(
                         fontSize: 20,
                         color: Colors.red,
@@ -125,7 +125,7 @@ class DirhamSymbolExample extends StatelessWidget {
                     const CustomDirhamSymbolTextView(
                       amount: 1111.99,
                       includeDecimal: false,
-                      symbolFontSize: 20,
+                      symbolFontSize: 10,
                       symbolFontWeight: FontWeight.bold,
                       amountStyle: TextStyle(
                         fontSize: 20,
