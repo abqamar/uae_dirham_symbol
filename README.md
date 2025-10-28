@@ -206,8 +206,8 @@ class DirhamSymbolExample extends StatelessWidget {
 | bool?       | includeDecimal   | default = true                                  |
 | TextStyle?  | amountStyle      | Use TextStyle for amount                        |
 
-## Preview
-<img src="https://raw.githubusercontent.com/abqamar/uae_dirham_symbol/refs/heads/main/screenshots/preview.png", alt="", width="600"/>
+### Preview
+<img src="https://raw.githubusercontent.com/abqamar/uae_dirham_symbol/refs/heads/main/screenshots/preview.png" alt="Examples" width="600"/>
 
 ## Support
 
